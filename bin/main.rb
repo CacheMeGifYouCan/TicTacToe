@@ -14,42 +14,83 @@
 # When one of the winning combinations is matched, player wins
 # Print a statement concluding the game result
 
-board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-def game_board(board)
-    puts " #{board[0]} | #{board[1]} | #{board[2]} "
-    puts "-----------"
-    puts " #{board[3]} | #{board[4]} | #{board[5]} "
-    puts "-----------"
-    puts " #{board[6]} | #{board[7]} | #{board[8]} "
-end
+WIN_COMBINATIONS = [
+  # Top
+  [0, 1, 2], # Top
+  [3, 4, 5], # Middle Row
+  [6, 7, 8], # Bottom Row
+  [0, 3, 6], # Left to Bottom Row
+  [2, 5, 8], # Right to Bottom Row
+  [0, 4, 8], # Diagonal from Left Row
+  [2, 4, 6] # Diagonal from Right Row
+]
 
-winning_combinations = true
-
-while winning_combinations == false
-  if winning_combinations == 1
-    puts "Congratulations #{player_win}"
-    break
-  elsif winning_combinations == 2
-    puts "It's a draw!"
+def win_result(result)
+  if result == WIN_COMBINATIONS[0] || WIN_COMBINATIONS[0]
+    puts 'Win Message'
+  elsif result == 1
+    puts 'Draw Message'
   else
-    puts "Unfortunately neither #{player1} nor #{player2} has won. Why not try again?"
+    puts 'Loser Message'
   end
 end
 
-def player_moves
-  puts 'Please enter a number from 1-9'
+def display_board(board)
+  puts " #{BOARD[0]} | #{BOARD[1]} | #{BOARD[2]} "
+  puts '-----------'
+  puts " #{BOARD[3]} | #{BOARD[4]} | #{BOARD[5]} "
+  puts '-----------'
+  puts " #{BOARD[6]} | #{BOARD[7]} | #{BOARD[8]} "
+end
+
+BOARD = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+
+def game_movements
+  total_moves = 0
+  while total_moves <= 4
+    player_1_index = []
+    player_2_index = []
+
+    # player_moves1
+    puts 'Please enter a number from 1-9'
     number = false
     while number == false
-       number = gets.chomp
-       if number.to_i.between?(1, 9)
-         game_board(board)
-         puts 'Next players turn'
-         number = true
-        else
-          puts 'Enter a valid number'
-          number = false
-        end
+      number = gets.chomp.to_i
+      if number.between?(1, 9)
+        BOARD.insert((number - 1), 'X')
+        player_1_index << number
+        puts display_board(BOARD)
+        puts 'Next players turn'
+        number = true
+        total_moves += 1
+      else
+        puts 'Enter a valid number'
+        number = false
+      end
     end
+
+    # player_moves2
+    puts 'Please enter a number from 1-9'
+    number2 = false
+    while number2 == false
+      number2 = gets.chomp.to_i
+      if BOARD[number2 -1].split.include?(String)
+        puts 'Please choose an empty square'
+        number2 = false
+      elsif number2.between?(1, 9)
+        BOARD.insert((number2 - 1), 'O')
+        player_1_index << number2
+        puts display_board(BOARD)
+        puts 'Next players turn'
+        number2 = true
+        total_moves += 1
+      else
+        puts 'Enter a valid number, or choose an empty square'
+        number2 = false
+      end
+    end
+  end
+
 end
 
 # Section 1 - Printed statements
@@ -75,7 +116,7 @@ gets.chomp
 puts "#{player1} you may go first."
 # Random player is chosen to start the game.
 
-puts player_moves
+puts game_movements
 # Player enters number. The relevant space on the board is filled with X or O
 
 # Show board
@@ -83,7 +124,7 @@ puts player_moves
 puts "#{player2} it is your turn."
 # Random player is chosen to start the game.
 
-puts player_moves
+puts player_moves_2
 # Player enters number. The relevant space on the board is filled with X or O
 
 # Show board
