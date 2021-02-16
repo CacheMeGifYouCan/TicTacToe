@@ -46,6 +46,27 @@ end
 BOARD = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
 def game_movements
+  puts 'Hello Player 1. Please enter your username here:'
+  player1 = gets.chomp
+  # Store this username in a variable
+  puts 'Player 1. You are X'
+  # Player 1 is now X
+
+  puts 'Hello Player 2. Please enter your username here:'
+  player2 = gets.chomp
+  # Store this username in a variable
+  puts 'Player 2. You are O'
+  # Player 2 is now O
+
+  # Players score count is displayed.
+
+  puts 'Press enter to roll the dice to decide which Player starts first.'
+  gets.chomp
+  # Random number is rolled
+
+  puts "#{player1} you may go first."
+  # Random player is chosen to start the game.
+
   total_moves = 0
   while total_moves <= 4
     player_1_index = []
@@ -74,12 +95,9 @@ def game_movements
     number2 = false
     while number2 == false
       number2 = gets.chomp.to_i
-      if BOARD[number2 -1].split.include?(String)
-        puts 'Please choose an empty square'
-        number2 = false
-      elsif number2.between?(1, 9)
+      if number2.between?(1, 9)
         BOARD.insert((number2 - 1), 'O')
-        player_1_index << number2
+        player_2_index << number2
         puts display_board(BOARD)
         puts 'Next players turn'
         number2 = true
@@ -95,36 +113,7 @@ end
 
 # Section 1 - Printed statements
 
-puts 'Hello Player 1. Please enter your username here:'
-player1 = gets.chomp
-# Store this username in a variable
-puts 'Player 1. You are X'
-# Player 1 is now X
-
-puts 'Hello Player 2. Please enter your username here:'
-player2 = gets.chomp
-# Store this username in a variable
-puts 'Player 2. You are O'
-# Player 2 is now O
-
-# Players score count is displayed.
-
-puts 'Press enter to roll the dice to decide which Player starts first.'
-gets.chomp
-# Random number is rolled
-
-puts "#{player1} you may go first."
-# Random player is chosen to start the game.
-
 puts game_movements
-# Player enters number. The relevant space on the board is filled with X or O
-
-# Show board
-
-puts "#{player2} it is your turn."
-# Random player is chosen to start the game.
-
-puts player_moves_2
 # Player enters number. The relevant space on the board is filled with X or O
 
 # Show board
