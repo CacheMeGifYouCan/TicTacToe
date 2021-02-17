@@ -1,61 +1,28 @@
 #!/usr/bin/env ruby
 
-# Define board methods. Board should be clear
-# Define Winning Combinations
-# Create various methods for collecting user data
-# Get Player 1 name
-# Get Player 2 name
-# Assign X to Player 1
-# Assign O to Player 2
-# Initalise X count to 0
-# Initalise O count to 0
-# Perform dice roll to decide which player starts
-# Take each Players input to make a move
-# When one of the winning combinations is matched, player wins
-# Print a statement concluding the game result
-
-WIN_COMBINATIONS = [
-  # Top
-  [0, 1, 2], # Top
-  [3, 4, 5], # Middle Row
-  [6, 7, 8], # Bottom Row
-  [0, 3, 6], # Left to Bottom Row
-  [2, 5, 8], # Right to Bottom Row
-  [0, 4, 8], # Diagonal from Left Row
-  [2, 4, 6] # Diagonal from Right Row
-]
-
-def win_result(result)
-  if result == WIN_COMBINATIONS[0] || WIN_COMBINATIONS[0]
-    puts 'Win Message'
-  elsif result == 1
-    puts 'Draw Message'
-  else
-    puts 'Loser Message'
-  end
-end
+require_relative './results_x'
+require_relative './results_o'
 
 def display_board(board)
-  puts " #{BOARD[0]} | #{BOARD[1]} | #{BOARD[2]} "
+  puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts '-----------'
-  puts " #{BOARD[3]} | #{BOARD[4]} | #{BOARD[5]} "
+  puts " #{board[3]} | #{board[4]} | #{board[5]} "
   puts '-----------'
-  puts " #{BOARD[6]} | #{BOARD[7]} | #{BOARD[8]} "
+  puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
-BOARD = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-
 def game_movements
+  board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
   puts 'Hello Player 1. Please enter your username here:'
   player1 = gets.chomp
   # Store this username in a variable
-  puts 'Player 1. You are X'
+  puts "Hello #{player1}. You are X"
   # Player 1 is now X
 
   puts 'Hello Player 2. Please enter your username here:'
   player2 = gets.chomp
   # Store this username in a variable
-  puts 'Player 2. You are O'
+  puts "Hello #{player2}. You are O"
   # Player 2 is now O
 
   # Players score count is displayed.
@@ -78,10 +45,11 @@ def game_movements
     while number == false
       number = gets.chomp.to_i
       if number.between?(1, 9)
-        BOARD.insert((number - 1), 'X')
-        player_1_index << number-1
-        puts display_board(BOARD)
-        puts 'Next players turn'
+        board.insert((number - 1), 'X')
+        player_1_index << number - 1
+        puts display_board(board)
+        puts results_x(board)
+        puts "#{player2}'s turn"
         number = true
         total_moves += 1
       else
@@ -96,10 +64,11 @@ def game_movements
     while number2 == false
       number2 = gets.chomp.to_i
       if number2.between?(1, 9)
-        BOARD.insert((number2 - 1), 'O')
-        player_2_index << number2-1
-        puts display_board(BOARD)
-        puts 'Next players turn'
+        board.insert((number2 - 1), 'O')
+        player_2_index << number2 - 1
+        puts display_board(board)
+        puts results_o(board)
+        puts "#{player1}'s turn"
         number2 = true
         total_moves += 1
       else
@@ -108,18 +77,7 @@ def game_movements
       end
     end
   end
-
 end
 
-# Section 1 - Printed statements
-
+# Run Game
 puts game_movements
-# Player enters number. The relevant space on the board is filled with X or O
-
-# Show board
-
-# If there is any winning combinations present, the game is concluded
-
-# Then we congratulate the winner. Else print Player... lost.
-
-# If it is a draw, print "It's a draw!"
