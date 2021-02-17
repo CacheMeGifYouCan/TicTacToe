@@ -19,25 +19,25 @@ def results_o(board)
 
   # board Left to Bottom condition
   board_left_to_bottom = if board[0].include?('O') && board[3].include?('O') && board[6].include?('O')
-                         then board_left_to_bottom = true
+                         then true
                          end
 
   # board Right to Bottom condition
   board_right_to_bottom = if board[2].include?('O') && board[5].include?('O') && board[8].include?('O')
-                          then board_right_to_bottom = true
+                          then true
                           end
 
   # board Diagonal from left row condition
   board_diagonal_left = if board[0].include?('O') && board[4].include?('O') && board[8].include?('O')
-                        then board_diagonal_left = true
+                        then true
                         end
 
   # board Diagonal from right row condition
   board_diagonal_right = if board[2].include?('O') && board[4].include?('O') && board[6].include?('O')
-                         then board_diagonal_right = true
+                         then true
                          end
 
-  case true
+  case board
   when board_top then 'O has won at the top'
   when board_middle then puts 'O has won in the middle'
   when board_bottom then puts 'O has won at the bottom'
