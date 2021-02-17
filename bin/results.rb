@@ -18,24 +18,16 @@ def results_x(board)
   board_bottom = board[6...8].all?('X')
 
   # board Left to Bottom condition
-  board_left_to_bottom = if board[0].include?('X') && board[3].include?('X') && board[6].include?('X')
-                         then true
-                         end
+  board_left_to_bottom = true if board[0].include?('X') && board[3].include?('X') && board[6].include?('X')
 
   # board Right to Bottom condition
-  board_right_to_bottom = if board[2].include?('X') && board[5].include?('X') && board[8].include?('X')
-                          then true
-                          end
+  board_right_to_bottom = true if board[2].include?('X') && board[5].include?('X') && board[8].include?('X')
 
   # board Diagonal from left row condition
-  board_diagonal_left = if board[0].include?('X') && board[4].include?('X') && board[8].include?('X')
-                        then true
-                        end
+  board_diagonal_left = true if board[0].include?('X') && board[4].include?('X') && board[8].include?('X')
 
   # board Diagonal from right row condition
-  board_diagonal_right = if board[2].include?('X') && board[4].include?('X') && board[6].include?('X')
-                         then true
-                         end
+  board_diagonal_right = true if board[2].include?('X') && board[4].include?('X') && board[6].include?('X')
 
   case board
   when board_top then 'X has won at the top'

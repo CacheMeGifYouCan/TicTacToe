@@ -18,24 +18,16 @@ def results_o(board)
   board_bottom = board[6...8].all?('O')
 
   # board Left to Bottom condition
-  board_left_to_bottom = if board[0].include?('O') && board[3].include?('O') && board[6].include?('O')
-                         then true
-                         end
+  board_left_to_bottom = true if board[0].include?('O') && board[3].include?('O') && board[6].include?('O')
 
   # board Right to Bottom condition
-  board_right_to_bottom = if board[2].include?('O') && board[5].include?('O') && board[8].include?('O')
-                          then true
-                          end
+  board_right_to_bottom = true if board[2].include?('O') && board[5].include?('O') && board[8].include?('O')
 
   # board Diagonal from left row condition
-  board_diagonal_left = if board[0].include?('O') && board[4].include?('O') && board[8].include?('O')
-                        then true
-                        end
+  board_diagonal_left = true if board[0].include?('O') && board[4].include?('O') && board[8].include?('O')
 
   # board Diagonal from right row condition
-  board_diagonal_right = if board[2].include?('O') && board[4].include?('O') && board[6].include?('O')
-                         then true
-                         end
+  board_diagonal_right = true if board[2].include?('O') && board[4].include?('O') && board[6].include?('O')
 
   case board
   when board_top then 'O has won at the top'
