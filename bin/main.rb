@@ -80,7 +80,7 @@ def game_movements
       if number.between?(0, 8)
         BOARD.insert((number), 'X')
         player_1_index << number
-        puts display_board(BOARD)
+        display_board(BOARD)
         puts 'Next players turn'
         number = true
         # total_moves += 1
@@ -98,7 +98,7 @@ def game_movements
       if number2.between?(0, 8)
         BOARD.insert((number2), 'O')
         player_2_index << number2
-        puts display_board(BOARD)
+        display_board(BOARD)
         puts 'Next players turn'
         number2 = true
         # total_moves += 1
