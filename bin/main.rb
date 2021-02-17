@@ -62,7 +62,7 @@ def game_movements
     number2 = false
     while number2 == false
       number2 = gets.chomp.to_i
-      unless board[number - 1].include?('O') || board[number - 1].include?('X')
+      unless board[number2 - 1].include?('O') || board[number2 - 1].include?('X')
         if number2.between?(1, 9)
           board[number2 - 1] = 'O'
           puts display_board(board)
