@@ -14,7 +14,7 @@
 # When one of the winning combinations is matched, player wins
 # Print a statement concluding the game result
 
-win_combinations = [
+WIN_COMBINATIONS = [
   # Top
   [0, 1, 2], # Top
   [3, 4, 5], # Middle Row
@@ -26,7 +26,7 @@ win_combinations = [
 ]
 
 def win_result(result)
-  if result == win_combinations[0] || win_combinations[0]
+  if result == WIN_COMBINATIONS[0] || WIN_COMBINATIONS[0]
     puts 'Win Message'
   elsif result == 1
     puts 'Draw Message'
@@ -35,15 +35,15 @@ def win_result(result)
   end
 end
 
-def display_board(_board)
+def display_board(board)
   puts " #{BOARD[0]} | #{BOARD[1]} | #{BOARD[2]} "
-  puts '------------'
+  puts '-----------'
   puts " #{BOARD[3]} | #{BOARD[4]} | #{BOARD[5]} "
-  puts '------------'
+  puts '-----------'
   puts " #{BOARD[6]} | #{BOARD[7]} | #{BOARD[8]} "
 end
 
-BOARD = %w[- - - - - - - - -]
+BOARD = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
 def game_movements
   puts 'Hello Player 1. Please enter your username here:'
@@ -73,17 +73,17 @@ def game_movements
     player_2_index = []
 
     # player_moves1
-    puts 'Please enter a number from 0-8'
+    puts 'Please enter a number from 1-9'
     number = false
     while number == false
       number = gets.chomp.to_i
-      if number.between?(0, 8)
-        BOARD.insert((number), 'X')
-        player_1_index << number
-        display_board(BOARD)
+      if number.between?(1, 9)
+        BOARD.insert((number - 1), 'X')
+        player_1_index << number-1
+        puts display_board(BOARD)
         puts 'Next players turn'
         number = true
-        # total_moves += 1
+        total_moves += 1
       else
         puts 'Enter a valid number'
         number = false
@@ -95,19 +95,20 @@ def game_movements
     number2 = false
     while number2 == false
       number2 = gets.chomp.to_i
-      if number2.between?(0, 8)
-        BOARD.insert((number2), 'O')
-        player_2_index << number2
-        display_board(BOARD)
+      if number2.between?(1, 9)
+        BOARD.insert((number2 - 1), 'O')
+        player_2_index << number2-1
+        puts display_board(BOARD)
         puts 'Next players turn'
         number2 = true
-        # total_moves += 1
+        total_moves += 1
       else
         puts 'Enter a valid number, or choose an empty square'
         number2 = false
       end
     end
   end
+
 end
 
 # Section 1 - Printed statements
