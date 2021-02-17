@@ -30,7 +30,7 @@ def results_x(board)
   board_diagonal_right = true if board[2].include?('X') && board[4].include?('X') && board[6].include?('X')
 
   case board
-  when board_top then 'X has won at the top'
+  when board_top then puts 'X has won at the top'
   when board_middle then puts 'X has won in the middle'
   when board_bottom then puts 'X has won at the bottom'
   when board_left_to_bottom then puts 'X has won from left to bottom'

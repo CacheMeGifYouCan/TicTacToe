@@ -36,25 +36,24 @@ def game_movements
 
   total_moves = 0
   while total_moves <= 4
-    player_1_index = []
-    player_2_index = []
 
     # player_moves1
     puts 'Please enter a number from 1-9'
     number = false
     while number == false
       number = gets.chomp.to_i
-      if number.between?(1, 9)
-        board.insert((number - 1), 'X')
-        player_1_index << number - 1
-        puts display_board(board)
-        puts results_x(board)
-        puts "#{player2}'s turn"
-        number = true
-        total_moves += 1
-      else
-        puts 'Enter a valid number'
-        number = false
+      unless board[number - 1].include?('O') || board[number - 1].include?('X')
+        if number.between?(1, 9)
+          board[number - 1] = 'X'
+          puts display_board(board)
+          puts results_x(board)
+          puts "#{player2}'s turn"
+          number = true
+          total_moves += 1
+        else
+          puts 'Enter a valid number'
+          number = false
+        end
       end
     end
 
@@ -63,17 +62,18 @@ def game_movements
     number2 = false
     while number2 == false
       number2 = gets.chomp.to_i
-      if number2.between?(1, 9)
-        board.insert((number2 - 1), 'O')
-        player_2_index << number2 - 1
-        puts display_board(board)
-        puts results_o(board)
-        puts "#{player1}'s turn"
-        number2 = true
-        total_moves += 1
-      else
-        puts 'Enter a valid number, or choose an empty square'
-        number2 = false
+      unless board[number - 1].include?('O') || board[number - 1].include?('X')
+        if number2.between?(1, 9)
+          board[number2 - 1] = 'O'
+          puts display_board(board)
+          puts results_o(board)
+          puts "#{player1}'s turn"
+          number2 = true
+          total_moves += 1
+        else
+          puts 'Enter a valid number, or choose an empty square'
+          number2 = false
+        end
       end
     end
   end
