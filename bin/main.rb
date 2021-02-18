@@ -129,6 +129,7 @@ while total_moves < 9
   while number == false
     number = gets.chomp.to_i
     if number.between?(1, 9)
+      # rubocop:disable Metrics/BlockNesting
       if board[number - 1].include?('O') || board[number - 1].include?('X')
         puts 'Invalid move - position taken'
       else
@@ -151,6 +152,7 @@ while total_moves < 9
     number2 = gets.chomp.to_i
     if number2.between?(1, 9)
       if board[number2 - 1].include?('O') || board[number2 - 1].include?('X')
+        # rubocop:enable Metrics/BlockNesting
         puts 'Invalid move - position taken'
       else
         board[number2 - 1] = 'O'
