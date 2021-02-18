@@ -131,7 +131,11 @@ def game_interface
         player1.your_turn
         number = true
         total_moves += 1
+      else
+        puts 'Invalid move - position taken'
       end
+      else
+        puts 'Invalid move'
       end
     end
 
@@ -148,10 +152,15 @@ def game_interface
           player2.your_turn
           number2 = true
           total_moves += 1
+        else
+          puts 'Invalid move - position taken'
         end
+      else
+        puts 'Invalid move'
       end
     end
   end
+  puts 'Game is a draw!'
 end
 
 # Run Game
