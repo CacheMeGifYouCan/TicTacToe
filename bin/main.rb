@@ -90,78 +90,73 @@ class User1
   end
 end
 
-def game_interface
-  board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
-  puts 'Hello Player 1. Please enter your username here:'
-  player1 = gets.chomp
-  player1 = User1.new(player1)
-  # Store this username in a variable
-  puts player1.info
-  # Player 1 is now X
+puts 'Hello Player 1. Please enter your username here:'
+player1 = gets.chomp
+player1 = User1.new(player1)
+# Store this username in a variable
+puts player1.info
+# Player 1 is now X
 
-  puts 'Hello Player 2. Please enter your username here:'
-  player2 = gets.chomp
-  player2 = User1.new(player2)
-  # Store this username in a variable
-  puts player2.info2
-  # Player 2 is now O
+puts 'Hello Player 2. Please enter your username here:'
+player2 = gets.chomp
+player2 = User1.new(player2)
+# Store this username in a variable
+puts player2.info2
+# Player 2 is now O
 
-  # Players score count is displayed.
+# Players score count is displayed.
 
-  puts 'Press enter to roll the dice to decide which Player starts first.'
-  gets.chomp
-  # Random number is rolled
+puts 'Press enter to roll the dice to decide which Player starts first.'
+gets.chomp
+# Random number is rolled
 
-  puts "#{player1.username} you may go first."
-  # Random player is chosen to start the game.
-  total_moves = 0
-  while total_moves < 9
+puts "#{player1.username} you may go first."
+# Random player is chosen to start the game.
+total_moves = 0
+while total_moves < 9
 
-    # player_moves1
-    puts 'Please enter a number from 1-9'
-    number = false
-    while number == false
-      number = gets.chomp.to_i
-      if number.between?(1, 9)
-        if board[number - 1].include?('O') || board[number - 1].include?('X')
-          puts 'Invalid move - position taken'
-        else
-          board[number - 1] = 'X'
-          display_board(board)
-          puts results_x(board)
-          player1.your_turn
-          number = true
-          total_moves += 1
-        end
+  # player_moves1
+  puts 'Please enter a number from 1-9'
+  number = false
+  while number == false
+    number = gets.chomp.to_i
+    if number.between?(1, 9)
+      if board[number - 1].include?('O') || board[number - 1].include?('X')
+        puts 'Invalid move - position taken'
       else
-        puts 'Invalid move'
+        board[number - 1] = 'X'
+        display_board(board)
+        puts results_x(board)
+        player1.your_turn
+        number = true
+        total_moves += 1
       end
-    end
-
-    # player_moves2
-    puts 'Please enter a number from 1-9'
-    number2 = false
-    while number2 == false
-      number2 = gets.chomp.to_i
-      if number2.between?(1, 9)
-        if board[number2 - 1].include?('O') || board[number2 - 1].include?('X')
-          puts 'Invalid move - position taken'
-        else
-          board[number2 - 1] = 'O'
-          display_board(board)
-          puts results_o(board)
-          player2.your_turn
-          number2 = true
-          total_moves += 1
-        end
-      else
-        puts 'Invalid move'
-      end
+    else
+      puts 'Invalid move'
     end
   end
-  puts 'Game is a draw!'
-end
 
-# Run Game
-puts game_interface
+  # player_moves2
+  puts 'Please enter a number from 1-9'
+  number2 = false
+  while number2 == false
+    number2 = gets.chomp.to_i
+    if number2.between?(1, 9)
+      if board[number2 - 1].include?('O') || board[number2 - 1].include?('X')
+        puts 'Invalid move - position taken'
+      else
+        board[number2 - 1] = 'O'
+        display_board(board)
+        puts results_o(board)
+        player2.your_turn
+        number2 = true
+        total_moves += 1
+      end
+    else
+      puts 'Invalid move'
+    end
+  end
+end
+puts 'Game is a draw!'
