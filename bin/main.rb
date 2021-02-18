@@ -17,11 +17,20 @@ def display_board(board)
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
-def results(board)
+def results_simple1(board)
   case 4.even?
-  when board[0...3].all?('X') then puts 'Winning Move! Game has been won at the top'
-  when board[3...6].all?('X') then puts 'Winning Move! Game has been won in the middle'
-  when board[6...9].all?('X') then puts 'Winning Move! Game has been won at the bottom'
+  when board[0...3].all?('X') then puts 'Winning Move! Game has been won by X at the top'
+  when board[3...6].all?('X') then puts 'Winning Move! Game has been won by X in the middle'
+  when board[6...9].all?('X') then puts 'Winning Move! Game has been won by X at the bottom'
+  else 'No wins'
+  end
+end
+
+def results_simple2(board)
+  case 4.even?
+  when board[0...3].all?('O') then puts 'Winning Move! Game has been won by O at the top'
+  when board[3...6].all?('O') then puts 'Winning Move! Game has been won by O in the middle'
+  when board[6...9].all?('O') then puts 'Winning Move! Game has been won by O at the bottom'
   else 'No wins'
   end
 end
@@ -115,7 +124,7 @@ while total_moves < 9
     else
       board[number - 1] = 'X'
       display_board(board)
-      puts results(board)
+      puts results_simple1(board)
       puts results_x(board)
       player1.your_turn
       number = true
@@ -136,7 +145,7 @@ while total_moves < 9
     else
       board[number2 - 1] = 'O'
       display_board(board)
-      puts results(board)
+      puts results_simple2(board)
       puts results_o(board)
       player2.your_turn
       number2 = true
