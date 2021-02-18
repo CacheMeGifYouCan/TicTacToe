@@ -23,16 +23,16 @@ def results_x(board)
   when board[3...6].all?('X') then puts 'X has won in the middle'
   when board[6...9].all?('X') then puts 'X has won at the bottom'
   # board Left to Bottom condition
-  when board[0].include?('X') && board[3].include?('X') && board[6].include?('X')
+  when board[0] == 'X' && board[3] == 'X' && board[6] == 'X'
     puts 'X has won from left to bottom'
   # board Right to Bottom condition
-  when board[2].include?('X') && board[5].include?('X') && board[8].include?('X')
+  when board[2] == 'X' && board[5] == 'X' && board[8] == 'X'
     puts 'X has won from right to bottom'
   # board Diagonal from left row condition
-  when board[0].include?('X') && board[4].include?('X') && board[8].include?('X')
+  when board[0] == 'X' && board[4] == 'X' && board[8] == 'X'
     puts 'X has won diagonally left'
   # board Diagonal from right row condition
-  when board[2].include?('X') && board[4].include?('X') && board[6].include?('X')
+  when board[2] == 'X' && board[4] == 'X' && board[6] == 'X'
     puts 'X has won diagonally right'
   else 'No wins'
   end
@@ -53,16 +53,16 @@ def results_o(board)
   when board[3...6].all?('O') then puts 'O has won in the middle'
   when board[6...9].all?('O') then puts 'O has won at the bottom'
   # board Left to Bottom condition
-  when board[0].include?('O') && board[3].include?('O') && board[6].include?('O')
+  when board[0] == 'O' && board[3] == 'O' && board[6] == 'O'
     puts 'O has won from left to bottom'
   # board Right to Bottom condition
-  when board[2].include?('O') && board[5].include?('O') && board[8].include?('O')
+  when board[2] == 'O' && board[5] == 'O' && board[8] == 'O'
     puts 'O has won from right to bottom'
   # board Diagonal from left row condition
-  when board[0].include?('O') && board[4].include?('O') && board[8].include?('O')
+  when board[0] == 'O' && board[4] == 'O' && board[8] == 'O'
     puts 'O has won diagonally left'
   # board Diagonal from right row condition
-  when board[2].include?('O') && board[4].include?('O') && board[6].include?('O')
+  when board[2] == 'O' && board[4] == 'O' && board[6] == 'O'
     puts 'O has won diagonally right'
   else 'No wins'
   end
