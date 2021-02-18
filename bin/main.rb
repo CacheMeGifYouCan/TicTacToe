@@ -27,7 +27,7 @@ def results_x(board)
     puts 'X has won from left to bottom'
   # board Right to Bottom condition
   when board[2].include?('X') && board[5].include?('X') && board[8].include?('X')
-    puts 'X has won from left to bottom'
+    puts 'X has won from right to bottom'
   # board Diagonal from left row condition
   when board[0].include?('X') && board[4].include?('X') && board[8].include?('X')
     puts 'X has won diagonally left'
@@ -57,7 +57,7 @@ def results_o(board)
     puts 'O has won from left to bottom'
   # board Right to Bottom condition
   when board[2].include?('O') && board[5].include?('O') && board[8].include?('O')
-    puts 'O has won from left to bottom'
+    puts 'O has won from right to bottom'
   # board Diagonal from left row condition
   when board[0].include?('O') && board[4].include?('O') && board[8].include?('O')
     puts 'O has won diagonally left'
@@ -81,7 +81,7 @@ class User1
     puts "Hello #{@username}, you are X"
   end
 
-  def info_2
+  def info2
     puts "Hello #{@username}, you are O"
   end
 
@@ -104,7 +104,7 @@ def game_interface
   player2 = gets.chomp
   player2 = User1.new(player2)
   # Store this username in a variable
-  puts player2.info_2
+  puts player2.info2
   # Player 2 is now O
 
   # Players score count is displayed.
@@ -124,16 +124,16 @@ def game_interface
     while number == false
       number = gets.chomp.to_i
       if number.between?(1, 9)
-      unless board[number - 1].include?('O') || board[number - 1].include?('X')
-        board[number - 1] = 'X'
-        display_board(board)
-        puts results_x(board)
-        player1.your_turn
-        number = true
-        total_moves += 1
-      else
-        puts 'Invalid move - position taken'
-      end
+        if board[number - 1].include?('O') || board[number - 1].include?('X')
+          puts 'Invalid move - position taken'
+        else
+          board[number - 1] = 'X'
+          display_board(board)
+          puts results_x(board)
+          player1.your_turn
+          number = true
+          total_moves += 1
+        end
       else
         puts 'Invalid move'
       end
@@ -145,15 +145,15 @@ def game_interface
     while number2 == false
       number2 = gets.chomp.to_i
       if number2.between?(1, 9)
-        unless board[number2 - 1].include?('O') || board[number2 - 1].include?('X')
+        if board[number2 - 1].include?('O') || board[number2 - 1].include?('X')
+          puts 'Invalid move - position taken'
+        else
           board[number2 - 1] = 'O'
           display_board(board)
           puts results_o(board)
           player2.your_turn
           number2 = true
           total_moves += 1
-        else
-          puts 'Invalid move - position taken'
         end
       else
         puts 'Invalid move'
