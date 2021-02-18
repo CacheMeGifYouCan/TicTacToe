@@ -22,9 +22,6 @@ def results(board)
   when board[0...3].all?('X') then puts 'Winning Move! Game has been won at the top'
   when board[3...6].all?('X') then puts 'Winning Move! Game has been won in the middle'
   when board[6...9].all?('X') then puts 'Winning Move! Game has been won at the bottom'
-  when board[0...3].all?('O') then puts 'Winning Move! Game has been won at the top'
-  when board[3...6].all?('O') then puts 'Winning Move! Game has been won in the middle'
-  when board[6...9].all?('O') then puts 'Winning Move! Game has been won at the bottom'
   else 'No wins'
   end
 end
