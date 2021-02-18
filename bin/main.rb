@@ -8,6 +8,9 @@ def display_board(board)
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
+# rubocop:disable Metrics/PerceivedComplexity
+# rubocop:disable Metrics/CyclomaticComplexity
+
 def results_x(board)
   # WIN_COMBINATIONS =>
   #   board[0, 1, 2], # Top
@@ -67,6 +70,9 @@ def results_o(board)
   else 'No wins'
   end
 end
+
+# rubocop:enable Metrics/PerceivedComplexity
+# rubocop:enable Metrics/CyclomaticComplexity
 
 class User1
   attr_accessor :username
