@@ -1,5 +1,14 @@
 #!/usr/bin/env ruby
 
+# WIN_COMBINATIONS =>
+#   board[0, 1, 2], # Top
+#   board[3, 4, 5], # Middle Row
+#   board[6, 7, 8], # Bottom Row
+#   board[0, 3, 6], # Left to Bottom Row
+#   board[2, 5, 8], # Right to Bottom Row
+#   board[0, 4, 8], # Diagonal from Left Row
+#   board[2, 4, 6] # Diagonal from Right Row
+
 def display_board(board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts '-----------'
@@ -8,71 +17,45 @@ def display_board(board)
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
-# rubocop:disable Metrics/PerceivedComplexity
-# rubocop:disable Metrics/CyclomaticComplexity
+def results(board)
+  case 4.even?
+  when board[0...3].all?('X') then puts 'Winning Move! Game has been won at the top'
+  when board[3...6].all?('X') then puts 'Winning Move! Game has been won in the middle'
+  when board[6...9].all?('X') then puts 'Winning Move! Game has been won at the bottom'
+  when board[0...3].all?('O') then puts 'Winning Move! Game has been won at the top'
+  when board[3...6].all?('O') then puts 'Winning Move! Game has been won in the middle'
+  when board[6...9].all?('O') then puts 'Winning Move! Game has been won at the bottom'
+  else 'No wins'
+  end
+end
 
 def results_x(board)
-  # WIN_COMBINATIONS =>
-  #   board[0, 1, 2], # Top
-  #   board[3, 4, 5], # Middle Row
-  #   board[6, 7, 8], # Bottom Row
-  #   board[0, 3, 6], # Left to Bottom Row
-  #   board[2, 5, 8], # Right to Bottom Row
-  #   board[0, 4, 8], # Diagonal from Left Row
-  #   board[2, 4, 6] # Diagonal from Right Row
-
   case 4.even?
-  when board[0...3].all?('X') then puts 'X has won at the top'
-  when board[3...6].all?('X') then puts 'X has won in the middle'
-  when board[6...9].all?('X') then puts 'X has won at the bottom'
   # board Left to Bottom condition
-  when board[0] == 'X' && board[3] == 'X' && board[6] == 'X'
-    puts 'X has won from left to bottom'
-  # board Right to Bottom condition
-  when board[2] == 'X' && board[5] == 'X' && board[8] == 'X'
-    puts 'X has won from right to bottom'
-  # board Diagonal from left row condition
-  when board[0] == 'X' && board[4] == 'X' && board[8] == 'X'
-    puts 'X has won diagonally left'
-  # board Diagonal from right row condition
-  when board[2] == 'X' && board[4] == 'X' && board[6] == 'X'
-    puts 'X has won diagonally right'
-  else 'No wins'
+  when board.values_at(0, 3, 6).all?('X')
+    puts 'Winning Move! Game has been won by X from left to bottom'
+  when board.values_at(2, 5, 8).all?('X')
+    puts 'Winning Move! Game has been won by X from right to bottom'
+  when board.values_at(0, 4, 8).all?('X')
+    puts 'Winning Move! Game has been won by X diagonally from left row'
+  when board.values_at(2, 4, 6).all?('X')
+    puts 'Winning Move! Game has been won by X diagonally from right row'
   end
 end
 
 def results_o(board)
-  # WIN_COMBINATIONS =>
-  #   board[0, 1, 2], # Top
-  #   board[3, 4, 5], # Middle Row
-  #   board[6, 7, 8], # Bottom Row
-  #   board[0, 3, 6], # Left to Bottom Row
-  #   board[2, 5, 8], # Right to Bottom Row
-  #   board[0, 4, 8], # Diagonal from Left Row
-  #   board[2, 4, 6] # Diagonal from Right Row
-
   case 4.even?
-  when board[0...3].all?('O') then puts 'O has won at the top'
-  when board[3...6].all?('O') then puts 'O has won in the middle'
-  when board[6...9].all?('O') then puts 'O has won at the bottom'
   # board Left to Bottom condition
-  when board[0] == 'O' && board[3] == 'O' && board[6] == 'O'
-    puts 'O has won from left to bottom'
-  # board Right to Bottom condition
-  when board[2] == 'O' && board[5] == 'O' && board[8] == 'O'
-    puts 'O has won from right to bottom'
-  # board Diagonal from left row condition
-  when board[0] == 'O' && board[4] == 'O' && board[8] == 'O'
-    puts 'O has won diagonally left'
-  # board Diagonal from right row condition
-  when board[2] == 'O' && board[4] == 'O' && board[6] == 'O'
-    puts 'O has won diagonally right'
-  else 'No wins'
+  when board.values_at(0, 3, 6).all?('O')
+    puts 'Winning Move! Game has been won by O from left to bottom'
+  when board.values_at(2, 5, 8).all?('O')
+    puts 'Winning Move! Game has been won by O from right to bottom'
+  when board.values_at(0, 4, 8).all?('O')
+    puts 'Winning Move! Game has been won by O diagonally from left row'
+  when board.values_at(2, 4, 6).all?('O')
+    puts 'Winning Move! Game has been won by O diagonally from right row'
   end
 end
-
-# rubocop:enable Metrics/PerceivedComplexity
-# rubocop:enable Metrics/CyclomaticComplexity
 
 class User1
   attr_accessor :username
@@ -124,46 +107,44 @@ total_moves = 0
 while total_moves < 9
 
   # player_moves1
-  puts 'Please enter a number from 1-9'
   number = false
-  while number == false
+  loop do
+    puts 'Please enter a number from 1-9'
     number = gets.chomp.to_i
-    if number.between?(1, 9)
-      # rubocop:disable Metrics/BlockNesting
-      if board[number - 1].include?('O') || board[number - 1].include?('X')
-        puts 'Invalid move - position taken'
-      else
-        board[number - 1] = 'X'
-        display_board(board)
-        puts results_x(board)
-        player1.your_turn
-        number = true
-        total_moves += 1
-      end
-    else
+    if board[number - 1] == 'O' || board[number - 1] == 'X'
+      puts 'Invalid move - position taken'
+    elsif number.between?(1, 9) == false
       puts 'Invalid move'
+    else
+      board[number - 1] = 'X'
+      display_board(board)
+      puts results(board)
+      puts results_x(board)
+      player1.your_turn
+      number = true
+      total_moves += 1
+      break
     end
   end
 
   # player_moves2
-  puts 'Please enter a number from 1-9'
   number2 = false
-  while number2 == false
+  loop do
+    puts 'Please enter a number from 1-9'
     number2 = gets.chomp.to_i
-    if number2.between?(1, 9)
-      if board[number2 - 1].include?('O') || board[number2 - 1].include?('X')
-        # rubocop:enable Metrics/BlockNesting
-        puts 'Invalid move - position taken'
-      else
-        board[number2 - 1] = 'O'
-        display_board(board)
-        puts results_o(board)
-        player2.your_turn
-        number2 = true
-        total_moves += 1
-      end
-    else
+    if board[number2 - 1] == 'O' || board[number2 - 1] == 'X'
+      puts 'Invalid move - position taken'
+    elsif number2.between?(1, 9) == false
       puts 'Invalid move'
+    else
+      board[number2 - 1] = 'O'
+      display_board(board)
+      puts results(board)
+      puts results_o(board)
+      player2.your_turn
+      number2 = true
+      total_moves += 1
+      break
     end
   end
 end
