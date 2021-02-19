@@ -110,8 +110,8 @@ gets.chomp
 puts "#{player1.username} you may go first."
 # Random player is chosen to start the game.
 total_moves = 0
-while total_moves < 9
 
+while total_moves < 8
   # player_moves1
   number = false
   loop do
@@ -153,5 +153,7 @@ while total_moves < 9
       break
     end
   end
+
 end
+
 puts 'Game is a draw!'
