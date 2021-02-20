@@ -13,14 +13,18 @@ def display_board(board)
 end
 
 class BoardResults
-  def results_simple(board)
+  def results_simple_x(board)
     if board[0...3].all?('X')
       'Game Won!'
     elsif board[3...6].all?('X')
       'Game Won!'
     elsif board[6...9].all?('X')
       'Game Won!'
-    elsif board[0...3].all?('O')
+    end
+  end
+
+  def results_simple_o(board)
+    if board[0...3].all?('O')
       'Game Won!'
     elsif board[3...6].all?('O')
       'Game Won!'
@@ -101,7 +105,8 @@ class BoardLoop
 
       break if board[0..9].any?(' ') == false
 
-      break if board_results.results_simple(board) == 'Game Won!'
+      break if board_results.results_simple_x(board) == 'Game Won!'
+      break if board_results.results_simple_o(board) == 'Game Won!'
       break if board_results.results_advanced1(board) == 'Game Won Diagonally!'
       break if board_results.results_advanced2(board) == 'Game Won Diagonally!'
 
@@ -157,7 +162,9 @@ end
 
 def win_check(board)
   board_results = BoardResults.new
-  if board_results.results_simple(board) == 'Game Won!'
+  if board_results.results_simple_x(board) == 'Game Won!'
+    puts 'Game won!'
+  elsif board_results.results_simple_o(board) == 'Game Won!'
     puts 'Game won!'
   elsif board_results.results_advanced1(board) == 'Game Won Diagonally!'
     puts 'Wow! The game has been won diagonally!'
