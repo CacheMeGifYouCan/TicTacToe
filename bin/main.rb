@@ -35,13 +35,13 @@ class BoardResults
 
   def results_advanced1(board)
     if board.values_at(0, 3, 6).all?('X')
-      'Game Won Diagonally!'
+      'Game Won Down The Left/Right Column!'
     elsif board.values_at(0, 3, 6).all?('O')
-      'Game Won Diagonally!'
+      'Game Won Down The Left/Right Column!'
     elsif board.values_at(2, 5, 8).all?('X')
-      'Game Won Diagonally!'
+      'Game Won Down The Left/Right Column!'
     elsif board.values_at(2, 5, 8).all?('O')
-      'Game Won Diagonally!'
+      'Game Won Down The Left/Right Column!'
     end
   end
 
@@ -60,7 +60,12 @@ end
 
 class BoardMoves
   def player_moves1(board)
+    board_results = BoardResults.new
     loop do
+      break if board[0..9].any?(' ') == false
+      break if board_results.results_advanced1(board) == 'Game Won Down The Left/Right Column!'
+      break if board_results.results_advanced2(board) == 'Game Won Diagonally!'
+
       greeting = Greetings.new
       greeting.greeting_x
       number = gets.chomp.to_i
@@ -77,7 +82,12 @@ class BoardMoves
   end
 
   def player_moves2(board)
+    board_results = BoardResults.new
     loop do
+      break if board[0..9].any?(' ') == false
+      break if board_results.results_advanced1(board) == 'Game Won Down The Left/Right Column!'
+      break if board_results.results_advanced2(board) == 'Game Won Diagonally!'
+
       greeting = Greetings.new
       greeting.greeting_o
       number = gets.chomp.to_i
@@ -101,8 +111,6 @@ class BoardLoop
     board2 = BoardMoves.new
     until total_moves > 9
       board1.player_moves1(board)
-
-      break if board[0..9].any?(' ') == false
 
       board2.player_moves2(board)
 
@@ -162,8 +170,8 @@ def win_check(board)
     puts 'Game won!'
   elsif board_results.results_simple_o(board) == 'Game Won!'
     puts 'Game won!'
-  elsif board_results.results_advanced1(board) == 'Game Won Diagonally!'
-    puts 'Wow! The game has been won diagonally!'
+  elsif board_results.results_advanced1(board) == 'Game Won Down The Left/Right Column!'
+    puts 'Wow! Game Won Down The Left/Right Column!'
   elsif board_results.results_advanced2(board) == 'Game Won Diagonally!'
     puts 'Wow! The game has been won diagonally!'
   else
