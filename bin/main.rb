@@ -99,15 +99,10 @@ class BoardLoop
     total_moves = 0
     board1 = BoardMoves.new
     board2 = BoardMoves.new
-    board_results = BoardResults.new
     until total_moves > 9
       board1.player_moves1(board)
 
       break if board[0..9].any?(' ') == false
-
-      break if board_results.results_simple_x(board) || board_results.results_simple_o(board) == 'Game Won!'
-      break if board_results.results_advanced1(board) == 'Game Won Diagonally!'
-      break if board_results.results_advanced2(board) == 'Game Won Diagonally!'
 
       board2.player_moves2(board)
 
