@@ -65,9 +65,9 @@ class BoardMoves
       greeting.greeting_x
       number = gets.chomp.to_i
       if board[number - 1] == 'O' || board[number - 1] == 'X'
-        invalid_moves1
+        greeting.invalid_moves1
       elsif number.between?(1, 9) == false
-        invalid_moves2
+        greeting.invalid_moves2
       else
         board[number - 1] = 'X'
         display_board(board)
@@ -82,9 +82,9 @@ class BoardMoves
       greeting.greeting_o
       number = gets.chomp.to_i
       if board[number - 1] == 'O' || board[number - 1] == 'X'
-        invalid_moves1
+        greeting.invalid_moves1
       elsif number.between?(1, 9) == false
-        invalid_moves2
+        greeting.invalid_moves2
       else
         board[number - 1] = 'O'
         display_board(board)
@@ -105,8 +105,7 @@ class BoardLoop
 
       break if board[0..9].any?(' ') == false
 
-      break if board_results.results_simple_x(board) == 'Game Won!'
-      break if board_results.results_simple_o(board) == 'Game Won!'
+      break if board_results.results_simple_x(board) || board_results.results_simple_o(board) == 'Game Won!'
       break if board_results.results_advanced1(board) == 'Game Won Diagonally!'
       break if board_results.results_advanced2(board) == 'Game Won Diagonally!'
 
@@ -130,10 +129,12 @@ class Greetings
 
   def invalid_moves1
     puts 'Invalid move - position taken'
+    puts
   end
 
   def invalid_moves2
     puts 'Invalid move'
+    puts
   end
 end
 
