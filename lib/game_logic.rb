@@ -78,7 +78,10 @@ class BoardMoves
     board_results = BoardResults.new
     loop do
       break if board[0..9].any?(' ') == false
-      break if board_results.results_simple_o(board) || board_results.results_simple_x(board) == 'Game Won!'
+      break if board_results.results_simple_x(board) == 'Game Won!'
+      break if board_results.results_simple_o(board) == 'Game Won!'
+      break if board_results.results_advanced1(board) == 'Game Won Down The Left/Right Column!'
+      break if board_results.results_advanced2(board) == 'Game Won Diagonally!'
 
       greeting = Greetings.new
       greeting.greeting_x
@@ -99,7 +102,10 @@ class BoardMoves
     board_results = BoardResults.new
     loop do
       break if board[0..9].any?(' ') == false
-      break if board_results.results_simple_o(board) || board_results.results_simple_x(board) == 'Game Won!'
+      break if board_results.results_simple_x(board) == 'Game Won!'
+      break if board_results.results_simple_o(board) == 'Game Won!'
+      break if board_results.results_advanced1(board) == 'Game Won Down The Left/Right Column!'
+      break if board_results.results_advanced2(board) == 'Game Won Diagonally!'
 
       greeting = Greetings.new
       greeting.greeting_o
