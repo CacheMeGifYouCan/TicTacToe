@@ -1,5 +1,5 @@
 class User1
-  attr_accessor :username
+  attr_reader :username
   attr_writer :password, :win_condition
 
   def initialize(username, win_condition)
