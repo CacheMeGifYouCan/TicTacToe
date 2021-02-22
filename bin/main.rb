@@ -61,8 +61,6 @@ def win_check(board)
   board_results = BoardResults.new
   if board_results.results_simple_x(board) == 'Game Won!'
     puts 'Game won!'
-  elsif board_results.results_simple_o(board) == 'Game Won!'
-    puts 'Game won!'
   elsif board_results.results_advanced1(board) == 'Game Won Down The Left/Right Column!'
     puts 'Wow! Game Won!'
   elsif board_results.results_advanced2(board) == 'Game Won Diagonally!'

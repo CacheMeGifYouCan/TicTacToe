@@ -29,21 +29,11 @@ end
 
 class BoardResults
   def results_simple_x(board)
-    if board[0...3].all?('X')
+    if board[0...3].uniq.count == 1 && board[2] != ' '
       'Game Won!'
-    elsif board[3...6].all?('X')
+    elsif board[3..6].uniq.count == 1 && board[5] != ' '
       'Game Won!'
-    elsif board[6...9].all?('X')
-      'Game Won!'
-    end
-  end
-
-  def results_simple_o(board)
-    if board[0...3].all?('O')
-      'Game Won!'
-    elsif board[3...6].all?('O')
-      'Game Won!'
-    elsif board[6...9].all?('O')
+    elsif board[6...9].uniq.count == 1 && board[7] != ' '
       'Game Won!'
     end
   end
@@ -78,12 +68,14 @@ class BoardMoves
     board_results = BoardResults.new
     loop do
       break if board[0..9].any?(' ') == false
-      break if board_results.results_simple_o(board) == 'Game Won!'
+      break if board_results.results_simple_x(board) == 'Game Won!'
+      break if board_results.results_advanced1(board) == 'Game Won Down The Left/Right Column!'
+      break if board_results.results_advanced2(board) == 'Game Won Diagonally!'
 
       greeting = Greetings.new
       greeting.greeting_x
       number = greeting.fetch_number
-      if board[number - 1] == 'O' || board[number - 1] == 'X'
+      if board[number - 1] == 'O'.to_i || board[number - 1] == 'X'.to_i
         greeting.invalid_moves1
       elsif number.between?(1, 9) == false
         greeting.invalid_moves2
@@ -100,13 +92,14 @@ class BoardMoves
   def player_moves2(board)
     board_results = BoardResults.new
     loop do
-      break if board_results.results_advanced1(board) == 'Game Won Down The Left/Right Column!'
       break if board_results.results_simple_x(board) == 'Game Won!'
+      break if board_results.results_advanced1(board) == 'Game Won Down The Left/Right Column!'
+      break if board_results.results_advanced2(board) == 'Game Won Diagonally!'
 
       greeting = Greetings.new
       greeting.greeting_o
       number = greeting.fetch_number
-      if board[number - 1] == 'O' || board[number - 1] == 'X'
+      if board[number - 1] == 'O'.to_i || board[number - 1] == 'X'.to_i
         greeting.invalid_moves1
       elsif number.between?(1, 9) == false
         greeting.invalid_moves2
