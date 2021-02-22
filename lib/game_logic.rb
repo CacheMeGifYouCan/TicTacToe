@@ -82,12 +82,14 @@ class BoardMoves
 
       greeting = Greetings.new
       greeting.greeting_x
-      number = gets.chomp.to_i
+      number = greeting.fetch_number
       if board[number - 1] == 'O' || board[number - 1] == 'X'
         greeting.invalid_moves1
       elsif number.between?(1, 9) == false
         greeting.invalid_moves2
       else
+        valid = Greetings.new
+        valid.valid_moves
         board[number - 1] = 'X'
         display_board(board)
         break
@@ -103,12 +105,14 @@ class BoardMoves
 
       greeting = Greetings.new
       greeting.greeting_o
-      number = gets.chomp.to_i
+      number = greeting.fetch_number
       if board[number - 1] == 'O' || board[number - 1] == 'X'
         greeting.invalid_moves1
       elsif number.between?(1, 9) == false
         greeting.invalid_moves2
       else
+        valid = Greetings.new
+        valid.valid_moves
         board[number - 1] = 'O'
         display_board(board)
         break

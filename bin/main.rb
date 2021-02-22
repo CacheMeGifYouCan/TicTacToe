@@ -45,6 +45,16 @@ Invalid move - position taken'
 Invalid move'
     puts
   end
+
+  def valid_moves
+    puts '
+    Valid move
+    '
+  end
+
+  def fetch_number
+    gets.chomp.to_i
+  end
 end
 
 def win_check(board)
