@@ -15,7 +15,7 @@ In this project, we have implemented our version of Tic Tac Toe using Ruby.
 
 ## Dependecies
 
-Install Ruby via NPM or directly
+Install Ruby via RVM or directly
 
 Fork this repository: https://github.com/CacheMeGifYouCan/TicTacToe/
 
@@ -23,10 +23,10 @@ __Clone the repo to your local machine using the terminal__:
 ```
 $ git clone https://github.com/CacheMeGifYouCan/TicTacToe
 ```
-Go to folder tick-tac-toe
-To install all dependencies use npm install
-Run npm test in command line or you can run tests in browser with npm start and open http://localhost:8080
-You will see the number of passing and failing tests. 100% of passing tests is equal to 100p in score
+Go to folder TicTacToe
+To install all dependencies use RVM install using Terminal
+More instructions for how to install this can be found here ![here](https://www.ruby-lang.org/en/documentation/installation/)
+The latest version of Ruby is not necessary, but can be useful for future updates
 
 ## How to Play
 
