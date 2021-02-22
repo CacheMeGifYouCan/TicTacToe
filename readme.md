@@ -3,7 +3,7 @@
 # Tic Tac Toe
 In this project, we have implemented our version of Tic Tac Toe using Ruby.
 
-<img align="right" alt="" height="300px" src="https://giphy.com/gifs/3o85xu3OLHOVvzZNra/html5" />
+<img align="right" alt="GIF" height="160px" src="https://media.giphy.com/media/3o85xu3OLHOVvzZNra/giphy.gif" />
 
 ## Built With Ruby
 
