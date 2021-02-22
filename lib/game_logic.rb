@@ -136,10 +136,10 @@ class BoardLoop
     until total_moves > 9
 
       board1.player_moves1(board)
+      break if board[0..9].any?(' ') == false
       break if board_results.results_simple_x(board) == 'Game Won!'
 
       board2.player_moves2(board)
-      break if board[0..9].any?(' ') == false
       break if board_results.results_simple_o(board) == 'Game Won!'
 
       total_moves += 1
