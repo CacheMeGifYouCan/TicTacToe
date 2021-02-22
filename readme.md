@@ -13,23 +13,17 @@ In this project, we have implemented our version of Tic Tac Toe using Ruby.
 
 ![Ruby](http://img.shields.io/badge/-Ruby-3776AB?style=flat-square&logo=ruby&logoColor=red)
 
-## Dependecies
+## Prerequisites
 
-Install Ruby via RVM or directly
+Ruby 2.6 (Or later)
 
-Fork this repository: https://github.com/CacheMeGifYouCan/TicTacToe/
+## Getting Started
+
 
 __Clone the repo to your local machine using the terminal__:
 ```
 $ git clone https://github.com/CacheMeGifYouCan/TicTacToe
 ```
-Go to folder TicTacToe
-
-To install all dependencies use RVM install using Terminal
-
-More instructions for how to install this can be found [here](https://www.ruby-lang.org/en/documentation/installation/)
-
-The latest version of Ruby is not necessary, but can be useful for future updates
 
 ## How to Play
 
