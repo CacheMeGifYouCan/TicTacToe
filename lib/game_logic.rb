@@ -128,10 +128,11 @@ class BoardLoop
     total_moves = 0
     board1 = BoardMoves.new
     board2 = BoardMoves.new
+    board_results = BoardResults.new
     until total_moves > 9
-      break if board_results.results_simple_x(board) == 'Game Won!'
 
       board1.player_moves1(board)
+      break if board_results.results_simple_x(board) == 'Game Won!'
 
       board2.player_moves2(board)
       break if board[0..9].any?(' ') == false
