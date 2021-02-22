@@ -49,8 +49,6 @@ Tip: Part of your strategy is trying to figure out how to get three Xs in a row.
 
 ## Authors
 
-### Author 1
-
 👤 **Marcus**
 
 - GitHub: [@CacheMeGifYouCan](https://github.com/CacheMeGifYouCan)
