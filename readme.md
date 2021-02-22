@@ -1,4 +1,8 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+![Issues](https://img.shields.io/github/issues/cachemegifyoucan/tictactoe?style=for-the-badge)
+![Followers](https://img.shields.io/github/followers/cachemegifyoucan?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/cachemegifyoucan?style=for-the-badge)
+![Pull Requests](https://img.shields.io/github/issues-pr/cachemegifyoucan/tictactoe?style=for-the-badge)
+![Last Commit](https://img.shields.io/github/last-commit/cachemegifyoucan/tictactoe/main?style=for-the-badge)
 
 # Tic Tac Toe
 In this project, we have implemented our version of Tic Tac Toe using Ruby.
