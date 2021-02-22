@@ -29,11 +29,13 @@ end
 
 class BoardResults
   def results_simple_x(board)
-    if board[0...3].uniq.count == 1 && board[2] != ' '
+    x_check = %w[X X X]
+    o_check = %w[O O O]
+    if board[0...3] == (x_check || o_check)
       'Game Won!'
-    elsif board[3..6].uniq.count == 1 && board[5] != ' '
+    elsif board[3...6] == (x_check || o_check)
       'Game Won!'
-    elsif board[6...9].uniq.count == 1 && board[7] != ' '
+    elsif board[6...9] == (x_check || o_check)
       'Game Won!'
     end
   end
