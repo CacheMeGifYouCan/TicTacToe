@@ -24,8 +24,11 @@ __Clone the repo to your local machine using the terminal__:
 $ git clone https://github.com/CacheMeGifYouCan/TicTacToe
 ```
 Go to folder TicTacToe
+
 To install all dependencies use RVM install using Terminal
+
 More instructions for how to install this can be found [here](https://www.ruby-lang.org/en/documentation/installation/)
+
 The latest version of Ruby is not necessary, but can be useful for future updates
 
 ## How to Play
