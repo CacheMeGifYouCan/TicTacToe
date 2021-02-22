@@ -59,6 +59,8 @@ class BoardResults
       'Game Won Down The Left/Right Column!'
     elsif board.values_at(2, 5, 8).all?('O')
       'Game Won Down The Left/Right Column!'
+    elsif board.values_at(1, 4, 7).all?('X')
+      'Game Won Down The Left/Right Column!'
     end
   end
 
@@ -71,6 +73,8 @@ class BoardResults
       'Game Won Diagonally!'
     elsif board.values_at(2, 4, 6).all?('O')
       'Game Won Diagonally!'
+    elsif board.values_at(1, 4, 7).all?('O')
+      'Game Won Down The Left/Right Column!'
     end
   end
 end
