@@ -1,6 +1,6 @@
 # spec/main_spec.rb
-require './lib/game_logic'
-require './bin/main'
+require '../lib/game_logic'
+require '../bin/main'
 
 board = MainBoard.new
 board = board.main_board
