@@ -3,7 +3,7 @@
 require_relative '../lib/game_logic'
 require_relative '../bin/main'
 
-RSpec.describe Greetings do
+describe Greetings do
   describe '#greeting_x' do
     let(:greeting) { Greetings.new }
     it 'class should be Greetings' do
@@ -12,7 +12,7 @@ RSpec.describe Greetings do
   end
 end
 
-RSpec.describe Greetings do
+describe Greetings do
   describe '#invalid_moves1' do
     let(:moves) { Greetings.new }
     it 'class should not be Array' do
@@ -21,7 +21,7 @@ RSpec.describe Greetings do
   end
 end
 
-RSpec.describe Greetings do
+describe Greetings do
   describe '#invalid_moves2' do
     let(:moves) { Greetings.new }
     it 'class should not be array' do
@@ -30,7 +30,7 @@ RSpec.describe Greetings do
   end
 end
 
-RSpec.describe Greetings do
+describe Greetings do
   describe '#fetch_number' do
     let(:num) { Greetings.new.fetch_number }
     it 'output should be string' do
