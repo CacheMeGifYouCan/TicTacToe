@@ -1,8 +1,7 @@
-# spec/main_board_spec.rb
+# ../spec/main_board_spec.rb
 
 require_relative '../bin/main'
 require_relative '../lib/game_logic'
-require 'spec_helper'
 
 RSpec.describe MainBoard do
   describe '#main_board' do
