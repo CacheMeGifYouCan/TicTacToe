@@ -3,7 +3,7 @@
 require_relative '../bin/main'
 require_relative '../lib/game_logic'
 
-describe MainBoard do
+RSpec.describe MainBoard do
   describe '#main_board' do
     let(:board) { MainBoard.new.main_board }
     it 'returns the board' do

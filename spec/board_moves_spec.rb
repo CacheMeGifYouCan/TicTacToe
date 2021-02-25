@@ -3,7 +3,7 @@
 require_relative '../lib/game_logic'
 require_relative '../bin/main'
 
-describe BoardMoves do
+RSpec.describe BoardMoves do
   describe '#player_moves1' do
     let(:board_moves) { BoardMoves.new.player_moves1(board) }
     let(:board) { MainBoard.new.main_board }

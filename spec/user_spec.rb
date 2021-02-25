@@ -3,7 +3,7 @@
 require_relative '../bin/main'
 require_relative '../lib/game_logic'
 
-describe User1 do
+RSpec.describe User1 do
   describe '#player_tests' do
     let(:player1) { User1.new('test', false) }
     it 'should create new user' do
@@ -12,7 +12,7 @@ describe User1 do
   end
 end
 
-describe User1 do
+RSpec.describe User1 do
   describe '#player_tests2' do
     let(:player1) { User1.new('test', false).info }
     it 'should not return nil' do
@@ -21,7 +21,7 @@ describe User1 do
   end
 end
 
-describe User1 do
+RSpec.describe User1 do
   describe '#player_tests2' do
     let(:player1) { User1.new('test', false).info2 }
     it 'should not return nil' do
@@ -30,7 +30,7 @@ describe User1 do
   end
 end
 
-describe User1 do
+RSpec.describe User1 do
   describe '#player_tests2' do
     let(:player1) { User1.new('test', false).your_turn }
     it 'should not return nil' do
