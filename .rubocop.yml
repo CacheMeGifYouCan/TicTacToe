@@ -2,6 +2,8 @@ AllCops:
   Exclude:
     - "Guardfile"
     - "Rakefile"
+  Include:
+    - rubocop-rspec
 
   DisplayCopNames: true
 
