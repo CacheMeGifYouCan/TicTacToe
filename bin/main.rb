@@ -72,20 +72,20 @@ def win_check(board)
   end
 end
 
-puts 'Hello Player 1. Please enter your username here:'
-player1 = gets.chomp
-player1 = User1.new(player1, false)
+# puts 'Hello Player 1. Please enter your username here:'
+# player1 = gets.chomp
+# player1 = User1.new(player1, false)
 
-puts player1.info
+# puts player1.info
 
-puts 'Hello Player 2. Please enter your username here:'
-player2 = gets.chomp
-player2 = User1.new(player2, false)
+# puts 'Hello Player 2. Please enter your username here:'
+# player2 = gets.chomp
+# player2 = User1.new(player2, false)
 
-puts player2.info2
+# puts player2.info2
 
-puts 'Press enter to roll the dice to decide which Player starts first.'
-gets.chomp
+# puts 'Press enter to roll the dice to decide which Player starts first.'
+# gets.chomp
 
 puts "#{player1.username} you may go first.
 
