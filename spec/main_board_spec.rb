@@ -1,4 +1,4 @@
-# ../spec/main_board_spec.rb
+# #!/usr/spec/env ruby
 
 require_relative '../bin/main'
 require_relative '../lib/game_logic'
