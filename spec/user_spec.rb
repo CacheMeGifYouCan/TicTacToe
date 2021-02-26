@@ -1,7 +1,7 @@
 # spec/user_spec.rb
 
-require_relative '../bin/main'
-require_relative '../lib/game_logic'
+require_relative '/bin/main'
+require_relative '/lib/game_logic'
 
 RSpec.describe User1 do
   describe '#player_tests' do

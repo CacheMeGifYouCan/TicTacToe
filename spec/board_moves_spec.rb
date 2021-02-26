@@ -1,7 +1,7 @@
 # spec/board_moves_spec.rb
 
-require_relative '../lib/game_logic'
-require_relative '../bin/main'
+require_relative '/lib/game_logic'
+require_relative '/bin/main'
 
 RSpec.describe BoardMoves do
   describe '#player_moves1' do
