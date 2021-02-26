@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/usr/lib/env ruby
 class User1
   attr_reader :username
   attr_writer :password, :win_condition
