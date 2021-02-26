@@ -1,4 +1,38 @@
 #!/usr/lib/env ruby
+class Greetings
+  def greeting_x
+    puts "X, it's your turn. Please enter a number from 1-9"
+    puts
+  end
+
+  def greeting_o
+    puts "O, it's your turn. Please enter a number from 1-9"
+    puts
+  end
+
+  def invalid_moves1
+    puts '
+Invalid move - position taken'
+    puts
+  end
+
+  def invalid_moves2
+    puts '
+Invalid move'
+    puts
+  end
+
+  def valid_moves
+    puts '
+    Valid move
+    '
+  end
+
+  def fetch_number
+    gets.chomp.to_i
+  end
+end
+
 class User1
   attr_reader :username
   attr_writer :password, :win_condition
