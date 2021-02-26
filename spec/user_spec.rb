@@ -37,3 +37,12 @@ RSpec.describe User1 do
     end
   end
 end
+
+RSpec.describe User1 do
+  describe '#player_tests2' do
+    let(:player1) { User1.new('test', false).info2 }
+    it 'should not return nil' do
+      expect(player1).to_not eql(Array)
+    end
+  end
+end

@@ -11,3 +11,23 @@ RSpec.describe BoardMoves do
     end
   end
 end
+
+RSpec.describe BoardMoves do
+  describe '#player_moves1' do
+    let(:board_moves) { BoardMoves.new }
+    let(:board) { MainBoard.new.main_board }
+    it 'should have class of BoardMoves' do
+      expect(board_moves).to_not be(Array)
+    end
+  end
+end
+
+RSpec.describe BoardMoves do
+  describe '#player_moves1' do
+    let(:board_moves) { BoardMoves.new }
+    let(:board) { MainBoard.new.main_board }
+    it 'should have class of BoardMoves' do
+      expect(board_moves).to_not be(nil)
+    end
+  end
+end
