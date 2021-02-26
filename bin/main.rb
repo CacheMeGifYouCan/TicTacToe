@@ -87,6 +87,8 @@ end
 # puts 'Press enter to roll the dice to decide which Player starts first.'
 # gets.chomp
 
+player1 = User1.new('player1', false)
+
 puts "#{player1.username} you may go first.
 
 "
