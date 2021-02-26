@@ -1,35 +1,10 @@
 #!/usr/lib/env ruby
-class Greetings
-  def greeting_x
-    puts "X, it's your turn. Please enter a number from 1-9"
-    puts
-  end
 
-  def greeting_o
-    puts "O, it's your turn. Please enter a number from 1-9"
-    puts
-  end
+class MainBoard
+  attr_reader :game_board
 
-  def invalid_moves1
-    puts '
-Invalid move - position taken'
-    puts
-  end
-
-  def invalid_moves2
-    puts '
-Invalid move'
-    puts
-  end
-
-  def valid_moves
-    puts '
-    Valid move
-    '
-  end
-
-  def fetch_number
-    gets.chomp.to_i
+  def main_board
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
   end
 end
 

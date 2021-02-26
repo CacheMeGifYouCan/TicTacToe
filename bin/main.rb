@@ -2,14 +2,6 @@
 
 require_relative '../lib/game_logic'
 
-class MainBoard
-  attr_reader :game_board
-
-  def main_board
-    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-  end
-end
-
 board = MainBoard.new
 board = board.main_board
 
@@ -21,6 +13,40 @@ def display_board(board)
   puts '-----------'
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
   puts
+end
+
+class Greetings
+  def greeting_x
+    puts "X, it's your turn. Please enter a number from 1-9"
+    puts
+  end
+
+  def greeting_o
+    puts "O, it's your turn. Please enter a number from 1-9"
+    puts
+  end
+
+  def invalid_moves1
+    puts '
+Invalid move - position taken'
+    puts
+  end
+
+  def invalid_moves2
+    puts '
+Invalid move'
+    puts
+  end
+
+  def valid_moves
+    puts '
+    Valid move
+    '
+  end
+
+  def fetch_number
+    gets.chomp.to_i
+  end
 end
 
 def win_check(board)
