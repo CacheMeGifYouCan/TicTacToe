@@ -20,12 +20,12 @@ Ruby 2.6 (Or later)
 ## How to Test for Errors
 
 1. Install RSpec [Rspec Gem](https://rspec.info)
-2. Run RSpec in the game Spec folder using the terminal
+2. Access the game folder in the terminal
+3. Run RSpec
 ```
-$ TicTacToe rspec
+$ rspec
 ```
-3. Run through the game twice.
-4. Then Rspec will output any errors found
+3. Rspec will output any errors found
 
 ## Getting Started
 
