@@ -1,0 +1,4 @@
+--require spec_helper
+--no-fail-fast
+--force-color
+--format documentation
