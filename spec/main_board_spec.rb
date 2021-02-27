@@ -8,12 +8,6 @@ RSpec.describe MainBoard do
     it 'returns the board' do
       expect(board.class).to eql(Array)
     end
-  end
-end
-
-RSpec.describe MainBoard do
-  describe '#main_board' do
-    let(:board) { MainBoard.new.main_board }
     it 'returns the board' do
       expect(board.class).to_not be(NilClass)
     end
