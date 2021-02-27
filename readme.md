@@ -17,6 +17,16 @@ In this project, we have implemented our version of Tic Tac Toe using Ruby.
 
 Ruby 2.6 (Or later)
 
+## How to Test for Errors
+
+1. Install RSpec [Rspec Gem](https://rspec.info)
+2. Access the game folder in the terminal
+3. Run RSpec
+```
+$ rspec
+```
+3. Rspec will output any errors found
+
 ## Getting Started
 
 [Live Link](https://repl.it/@CacheMeIfYouCan/TicTacToe)
