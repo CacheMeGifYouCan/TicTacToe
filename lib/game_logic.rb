@@ -1,7 +1,5 @@
 #!/usr/lib/env ruby
 
-<<<<<<< Updated upstream
-=======
 # Class that initialises the game board
 #
 # It keeps stores the data pertaining the current state of
@@ -11,7 +9,6 @@
 # board = board.main_board
 # puts board    # -> # [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
->>>>>>> Stashed changes
 class MainBoard
   attr_reader :game_board
 
@@ -20,8 +17,6 @@ class MainBoard
   end
 end
 
-<<<<<<< Updated upstream
-=======
 # The display_board method outputs the board to the console when called,
 # this gives a visual output to the user, displaying the board status
 #
@@ -33,7 +28,6 @@ end
 # O | X | O
 # X | O | X
 #
->>>>>>> Stashed changes
 def display_board(board)
   puts
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
@@ -44,8 +38,6 @@ def display_board(board)
   puts
 end
 
-<<<<<<< Updated upstream
-=======
 # Class stores the player username, password and current win condition.
 # The methods defined have been created to output various interactions,
 # with the user.
@@ -55,7 +47,6 @@ end
 #
 # puts player1.info  # -> 'Hello Example, you are X'
 #
->>>>>>> Stashed changes
 class User1
   attr_reader :username
   attr_writer :password, :win_condition
