@@ -1,8 +1,8 @@
-![Issues](https://img.shields.io/github/issues/cachemegifyoucan/tictactoe?style=for-the-badge)
-![Followers](https://img.shields.io/github/followers/cachemegifyoucan?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/cachemegifyoucan?style=for-the-badge)
-![Pull Requests](https://img.shields.io/github/issues-pr/cachemegifyoucan/tictactoe?style=for-the-badge)
-![Last Commit](https://img.shields.io/github/last-commit/cachemegifyoucan/tictactoe/main?style=for-the-badge)
+![Issues](https://img.shields.io/github/issues/marcusal/tictactoe?style=for-the-badge)
+![Followers](https://img.shields.io/github/followers/marcusal?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/marcusal?style=for-the-badge)
+![Pull Requests](https://img.shields.io/github/issues-pr/marcusal/tictactoe?style=for-the-badge)
+![Last Commit](https://img.shields.io/github/last-commit/marcusal/tictactoe/main?style=for-the-badge)
 
 # Tic Tac Toe
 In this project, we have implemented our version of Tic Tac Toe using Ruby.
@@ -34,7 +34,7 @@ $ rspec
 
 __Clone the repo to your local machine using the terminal__:
 ```
-$ git clone https://github.com/CacheMeGifYouCan/TicTacToe
+$ git clone https://github.com/marcusal/TicTacToe
 ```
 
 ## How to Play
@@ -64,7 +64,7 @@ Tip: Part of your strategy is trying to figure out how to get three Xs in a row.
 
 👤 **Marcus**
 
-- GitHub: [@CacheMeGifYouCan](https://github.com/CacheMeGifYouCan)
+- GitHub: [@CacheMeGifYouCan](https://github.com/marcusal)
 - LinkedIn: [Mark Allen](https://www.linkedin.com/in/marcusa999/)
 
 
@@ -72,7 +72,7 @@ Tip: Part of your strategy is trying to figure out how to get three Xs in a row.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/CacheMeGifYouCan/TicTacToe/issues)
+Feel free to check the [issues page](https://github.com/marcusal/TicTacToe/issues)
 
 ## 📝 License
 
